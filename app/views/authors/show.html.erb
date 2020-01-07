@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @author.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @author.country %>
+</p>
+
+<p>
+  <strong>Books:</strong>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Sales</th>
+      <th>Genre</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @author.books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.sales %></td>
+        <td><%= link_to book.genre.name, book.genre %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Back', authors_path %>

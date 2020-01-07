@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @genre.name %>
+</p>
+
+<p>
+  <strong>Books:</strong>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Sales</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @genre.books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.sales %></td>
+        <td><%= link_to book.author.name, book.author %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to 'Back', genres_path %>
